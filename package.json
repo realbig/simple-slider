@@ -8,9 +8,11 @@
     },
     "devDependencies": {
         "grunt": "*",
+        "grunt-autoprefixer": "*",
         "grunt-contrib-watch": "*",
         "grunt-contrib-uglify": "*",
         "grunt-notify": "*",
+        "grunt-sass": "*",
         "matchdep": "*"
     }
 }
