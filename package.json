@@ -1,0 +1,16 @@
+{
+    "name": "Simple_Slider",
+    "description": "Simple Slider for WordPress",
+    "version": "0.1.0",
+    "author": {
+        "name": "d4mation-",
+        "email": "eric.defore@gmail.com"
+    },
+    "devDependencies": {
+        "grunt": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-notify": "*",
+        "matchdep": "*"
+    }
+}
