@@ -1,25 +1,29 @@
 ;( function( $ ) {
 
     /*
-	 * We define RealBigSlider as a variable of type ‘function’.
-   * Here, we use an anonymous function to ensure
-   * that the logic inside the function is executed immediately.
-	 *
-	 */
+    * We define RealBigSlider as a variable of type ‘function’.
+    * Here, we use an anonymous function to ensure
+    * that the logic inside the function is executed immediately.
+    *
+    */
     var RealBigSlider = ( function( element, settings ) {
 
         var instanceUid = 0;
 
         /*
-     * The constructor function for RealBigSlider
-     *
-     */
+        * The constructor function for RealBigSlider
+        *
+        */
         function _RealBigSlider( element, settings ) {
-            this.defaults ={
+
+            // Ensures the element selectors are as specific to the slider itself as possible.
+            var selector = '.' + element.className.replace( /\s/g, '.' );
+
+            this.defaults = {
                 slideDuration: '3000',
                 speed: 500,
-                arrowRight: '.arrow-right',
-                arrowLeft: '.arrow-left'
+                arrowRight: selector + ' .arrow-right',
+                arrowLeft: selector + ' .arrow-left'
             };
 
             // We create a new property to hold our default settings after they
@@ -27,7 +31,7 @@
             this.settings = $.extend( {}, this, this.defaults, settings );
 
             // This object holds values that will change as the plugin operates
-            this.initials ={
+            this.initials = {
                 currSlide : 0,
                 $currSlide: null,
                 totalSlides : false,
@@ -58,12 +62,12 @@
     } )();
 
     /**
-	 * Called once per instance
-	 * Calls starter methods and associate the '.realbig-slider' class
-	 * @params void
-	 * @returns void
-	 *
-	 */
+     * Called once per instance
+     * Calls starter methods and associate the '.realbig-slider' class
+     * @params void
+     * @returns void
+     *
+     */
     RealBigSlider.prototype.init = function() {
         //Test to see if cssanimations are available
         this.csstransitionsTest();
@@ -163,8 +167,8 @@
    */
     RealBigSlider.prototype.events = function() {
         $( 'body' )
-            .on( 'click', this.settings.arrowRight, {direction:'right'}, this.changeSlide )
-            .on( 'click', this.settings.arrowLeft, {direction:'left'}, this.changeSlide )
+            .on( 'click', this.settings.arrowRight, {direction: 'right'}, this.changeSlide )
+            .on( 'click', this.settings.arrowLeft, {direction: 'left'}, this.changeSlide )
             .on( 'click', '.indicators li', this.changeSlide );
     };
 
@@ -334,10 +338,10 @@
         // See CSS for explanation of .js-reset-left
         if( direction == 'right' ) _.$currSlide.addClass( 'js-reset-left' );
 
-        var animation ={};
+        var animation = {};
         animation[direction] = '0%';
 
-        var animationPrev ={};
+        var animationPrev = {};
         animationPrev[direction] = '100%';
 
         //Animation: Current slide

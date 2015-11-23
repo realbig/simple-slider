@@ -1,15 +1,16 @@
 jQuery( document ).ready( function( $ ) {
 
-    // Custom options for the carousel
-    var args = {
-        arrowRight : '.arrow-right', //A jQuery reference to the right arrow
-        arrowLeft : '.arrow-left', //A jQuery reference to the left arrow
-        speed : 1000, //The speed of the animation (milliseconds)
-        slideDuration : 4000 //The amount of time between animations (milliseconds)
-    };
+    $( '.realbig-slider' ).each( function( index ) {
 
-    $( '.realbig-slider' ).each( function() {
-        $( this ).RealBigSlider( args );
+        $( this ).addClass( 'slider-' + index );
+
+    } );
+
+    $( '.realbig-slider.default' ).each( function() {
+        // Uses default settings. Set default_js = false in the shortcode to provide a custom instantiation
+
+        $( this ).RealBigSlider();
+
     } );
 
 } );

@@ -91,18 +91,4 @@
           background: #93278f; }
         .realbig-slider-container .realbig-slider .indicators li:hover {
           background-color: #2b2b2b; }
-
-.slide {
-  text-align: center;
-  padding-top: 25%;
-  background-size: cover; }
-
-.slide:nth-child(1) {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/163697/slide-1.jpg); }
-
-.slide:nth-child(2) {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/163697/slide-2.jpg); }
-
-.slide:nth-child(3) {
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/163697/slide-3.jpg); }
 /*# sourceMappingURL=simple-slider.css.map */

@@ -60,6 +60,7 @@ class RealBigSlider {
                 'ids' => '',
                 'arrows' => true,
                 'indicators' => true,
+                'default_js' => true,
                 'classes' => '',
             ),
             $atts,
@@ -78,7 +79,7 @@ class RealBigSlider {
 
         $out .= '<div class = "realbig-slider-container">';
 
-            $out .= '<div class = "realbig-slider' . ( ( $atts['classes'] != '' ) ? ' ' . $atts['classes'] : '' ) . '">';
+            $out .= '<div class = "realbig-slider' . ( ( $atts['classes'] != '' ) ? ' ' . $atts['classes'] : '' ) . ( ( $atts['default_js'] === true ) ? ' default' : '' ) . '">';
 
                 $out .= '<div class = "inner">';
 
