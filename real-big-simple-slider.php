@@ -59,6 +59,7 @@ class RealBigSlider {
             array(// a few default values
                 'ids' => '',
                 'arrows' => true,
+                'indicators' => true,
                 'classes' => '',
             ),
             $atts,
@@ -71,23 +72,49 @@ class RealBigSlider {
 
         $attachment_ids = explode( ',', $atts['ids'] );
 
+        $first = true;
+
         $out = '';
 
-        $out .= '<div class = "realbig-slider' . ( ( $atts['classes'] != '' ) ? ' ' . $atts['classes'] : '' ) . '">';
+        $out .= '<div class = "realbig-slider-container">';
 
-            $out .= '<ul>';
+            $out .= '<div class = "realbig-slider' . ( ( $atts['classes'] != '' ) ? ' ' . $atts['classes'] : '' ) . '">';
 
-            foreach ( $attachment_ids as $id ) {
+                $out .= '<div class = "inner">';
 
-                $out .= '<li>' . wp_get_attachment_image( $id, 'full' ) . '</li>';
+                    foreach ( $attachment_ids as $id ) {
 
-            }
+                        if ( $first ) {
 
-            $out .= '</ul>';
+                            $out .= '<div class = "slide active">' . wp_get_attachment_image( $id, 'full' ) . '</div>';
 
-        $out .= '<a href = "#" class = "previous">Previous</a>';
+                            $first = false;
 
-        $out .= '<a href = "#" class = "next">Next</a>';
+                        }
+                        else {
+
+                            $out .= '<div class = "slide">' . wp_get_attachment_image( $id, 'full' ) . '</div>';
+
+                        }
+
+                    }
+
+                $out .= '</div>';
+
+                if ( $atts['arrows'] === true ) {
+
+                        $out .= '<div class = "arrow arrow-left"></div>';
+                        $out .= '<div class = "arrow arrow-right"></div>';
+
+                }
+
+                if ( $atts['indicators'] === true ) {
+
+                    $out .= '<ul class = "indicators"></ul>';
+
+                }
+
+            $out .= '</div>';
 
         $out .= '</div>';
 
