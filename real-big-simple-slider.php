@@ -85,18 +85,9 @@ class RealBigSlider {
 
                     foreach ( $attachment_ids as $id ) {
 
-                        if ( $first ) {
+                        $out .= '<div class = "slide' . ( ( $first === true ) ? ' active' : '' ) . '" style = "background-image: url(' . wp_get_attachment_url( $id ) . ')"></div>';
 
-                            $out .= '<div class = "slide active">' . wp_get_attachment_image( $id, 'full' ) . '</div>';
-
-                            $first = false;
-
-                        }
-                        else {
-
-                            $out .= '<div class = "slide">' . wp_get_attachment_image( $id, 'full' ) . '</div>';
-
-                        }
+                        $first = false;
 
                     }
 
